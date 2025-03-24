@@ -1,11 +1,11 @@
 body{
-    background-color: rgb(37, 36, 36);
+    background-color: #212529;
     color:white;
 }
 
 .navbar{
     margin: 10px;
-    background-color: blueviolet;
+    background-color: #6741d9;;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -15,10 +15,10 @@ body{
 
 }
 .navbar h2,.navbar p,.navbar b,.navbar form {
-    background-color: blueviolet;
+    background-color: #6741d9;;
 }
 .popcorn{
-    background-color: blueviolet;
+    background-color: #6741d9;;
 }
 
 .logo-flex{
@@ -26,12 +26,10 @@ body{
     justify-content: space-between;
     align-items: center;
     gap:10px;
-    background-color: blueviolet;
-
+    background-color: #6741d9;;
 }
 .result{
-    background-color: blueviolet;
-
+    background-color: #6741d9;;
 }
 
 .search-bar input{
@@ -39,10 +37,13 @@ body{
     width:400px;
     border-radius: 10px;
     border-style: none;
-    background-color: rgb(137, 79, 190);
+    background-color: #7950f2;
     color:white;
 }
-
+.logo-popcorn{
+    font-size: 35px;
+    margin:0px;
+}
 .search-bar input::placeholder{
     color:rgb(170, 167, 167);
 }
@@ -54,16 +55,17 @@ body{
 }
 
 .list-of-movies{
-    background-color: rgb(73, 66, 68);
+    background-color:#343a40;
     width:400px;
     height: 550px;
     overflow-y: scroll;
     padding-top:10px;
+    border-top-left-radius: 10px;
 }
 
 .detail{
     width:350px;
-    background-color: rgb(73, 66, 68);
+    background-color: #343a40;
     padding:20px;
 }
 .individual-film{
@@ -80,4 +82,25 @@ body{
 .description-flex{
     display:flex;
     justify-content: space-between;
+}
+
+.detail-box{
+    width:400px;
+    background-color: #343a40;
+    border-top-left-radius: 10px;
+}
+.detail-box img{
+    border-top-left-radius: 10px;
+}
+
+.detail-heading{
+    display:flex;
+    align-items: center;
+    gap:30px
+}
+.detail-box-null{
+    padding:20px;
+}
+.star{
+    width:20px;
 }

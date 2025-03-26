@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function StarReview({
   index,
   setIndex,
-  setRating
+  handleSelectedMovie
 }) {
   const [fill, setFill] = useState(false);
   return (
@@ -21,8 +21,7 @@ export default function StarReview({
             setIndex(0);
           }}
           onClick={() => {
-            setIndex(i);
-            setRating(index);
+            handleSelectedMovie(i);
           }}
         >
           {fill && i <= index ?  (

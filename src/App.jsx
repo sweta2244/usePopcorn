@@ -6,22 +6,17 @@ import MovieSection from "./Component/Content/MovieSection";
 export default function App() {
   const [data, setData] = useState([]);
   const [query, setQuery] = useState("action");
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true);
       try {
         const response = await fetch(
           `https://www.omdbapi.com/?apikey=76f6573d&s=${query}`
         );
         const json = await response.json();
         setData(json.Search);
-        console.log("fetehced Data:", json.Search);
-      } catch (error) {
-        console.error("Fetch Error:", error);
-      } finally {
-        setLoading(true);
+      }catch(error){
+        console.log("Error fecthing data:",error);
       }
     };
     fetchData();
@@ -30,7 +25,7 @@ export default function App() {
   return (
     <>
       <Navbar query={query} setQuery={setQuery} data={data} />
-      <MovieSection data={data} loading={loading} />
+      <MovieSection data={data} />
     </>
   );
 }

@@ -1,31 +1,64 @@
 import MovieList from "./MovieList";
 import MovieDetail from "./MovieDetail";
 import { useState } from "react";
+import MovieWatched from "./MovieWatched";
 
-export default function MovieSection({ data, loading }) {
+export default function MovieSection({ data }) {
   const [selectedMovie, setSelectedMovie] = useState({});
-  const [addList,setAddList]=useState([]);
-  const [movieWatched,setWatchedMovie]=useState([]);
-  function handlewatchMovie(a){
-    setWatchedMovie((prev)=>[...prev,a]);
+  const [movieWatched, setWatchedMovie] = useState([]);
+  const [disable, setDisable] = useState(true);
+  const [listDisable, setListDisable] = useState(true);
+  const [detailDisable, setDetailDisable] = useState(true);
+
+  function handleDetailDisable() {
+    setDetailDisable(!detailDisable);
+  }
+  function handleListDisable() {
+    setListDisable(!listDisable);
+  }
+
+  function handlewatchMovie(a) {
+    setWatchedMovie((prev) => [...prev, a]);
+  }
+  function handleRemoval(movie) {
+    setWatchedMovie((prev) => prev.filter((i) => i.Title !==  movie ));
   }
 
   function handleDescription(id) {
     let result = data.find((d) => d.imdbID === id);
     setSelectedMovie(result);
   }
-  function handleAddList(rating){
-    setAddList([...data,rating])
+
+  function handleDisable() {
+    setDisable(!disable);
   }
+
   return (
     <div className="Body">
       <MovieList
         data={data}
-        loading={loading}
         handleDescription={handleDescription}
+        handleDisable={handleDisable}
+        listDisable={listDisable}
+        handleListDisable={handleListDisable}
       />
-      <MovieDetail data={selectedMovie} handleAddList={handleAddList} handlewatchMovie={handlewatchMovie} movieWatched={movieWatched}/>
-      {/* <MovieWatched data={selectedMovie}/> */}
+      {!disable ? (
+        <MovieDetail
+          selectedMovie={selectedMovie}
+          setSelectedMovie={setSelectedMovie}
+          handlewatchMovie={handlewatchMovie}
+          handleDisable={handleDisable}
+          detailDisable={detailDisable}
+          handleDetailDisable={handleDetailDisable}
+        />
+      ) : (
+        <MovieWatched
+          movieWatched={movieWatched}
+          detailDisable={detailDisable}
+          handleDetailDisable={handleDetailDisable}
+          handleRemoval={handleRemoval}
+        />
+      )}
     </div>
   );
 }

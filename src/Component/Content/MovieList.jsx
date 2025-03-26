@@ -1,10 +1,11 @@
 
-export default function MovieList({ data,handleDescription }) {
+export default function MovieList({ data,handleDescription,handleDisable,listDisable,handleListDisable }) {
   return (
     <div className="list-of-movies">
-      {data ? (
+    <button onClick={()=>handleListDisable()}>{listDisable?<p>-</p>:<p>+</p>}</button>
+      {listDisable?(data ? (
         data.map((item, i) => (
-          <div className="individual-film" key={i} onClick={()=>handleDescription(item.imdbID)}>
+          <div className="individual-film" key={i} onClick={()=>{handleDescription(item.imdbID);handleDisable()}}>
             <div>
               <img src={item.Poster} alt="image" />
             </div>
@@ -18,7 +19,7 @@ export default function MovieList({ data,handleDescription }) {
         ))
       ) : (
         <p style={{ paddingLeft: "20px" }}>No Results found</p>
-      )}
+      )):null}
     </div>
   );
 }

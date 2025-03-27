@@ -1,30 +1,29 @@
 import { useState } from "react";
 
-export default function StarReview({
-  index,
-  setIndex,
-  handleSelectedMovie
-}) {
-  const [fill, setFill] = useState(false);
+export default function StarReview({ index, setIndex, handleSelectedMovie }) {
+  const [isRated, setIsRated] = useState(0);
   return (
     <div className="star-section">
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
         <div
           key={i}
           className="star"
+          onClick={() => {
+            handleSelectedMovie(i);
+            setIsRated(i);
+          }}
           onMouseEnter={() => {
-            setFill(true);
             setIndex(i);
           }}
           onMouseLeave={() => {
-            setFill(false);
-            setIndex(0);
-          }}
-          onClick={() => {
-            handleSelectedMovie(i);
+            if (isRated > 0) {
+              setIndex(isRated);
+            } else {
+              setIndex(0);
+            }
           }}
         >
-          {fill && i <= index ?  (
+          {i <= index ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"

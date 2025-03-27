@@ -1,6 +1,6 @@
 import MovieList from "./MovieList";
 import MovieDetail from "./MovieDetail";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import MovieWatched from "./MovieWatched";
 
 export default function MovieSection({ data }) {
@@ -13,6 +13,7 @@ export default function MovieSection({ data }) {
   function handleDetailDisable() {
     setDetailDisable(!detailDisable);
   }
+
   function handleListDisable() {
     setListDisable(!listDisable);
   }
@@ -20,8 +21,9 @@ export default function MovieSection({ data }) {
   function handlewatchMovie(a) {
     setWatchedMovie((prev) => [...prev, a]);
   }
+
   function handleRemoval(movie) {
-    setWatchedMovie((prev) => prev.filter((i) => i.Title !==  movie ));
+    setWatchedMovie((prev) => prev.filter((i) => i.Title !== movie));
   }
 
   function handleDescription(id) {
@@ -32,6 +34,9 @@ export default function MovieSection({ data }) {
   function handleDisable() {
     setDisable(!disable);
   }
+  useEffect(() => {
+    localStorage.setItem("watched", JSON.stringify(movieWatched));
+  }, [movieWatched]);
 
   return (
     <div className="Body">

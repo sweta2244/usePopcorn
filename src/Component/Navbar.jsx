@@ -1,6 +1,6 @@
 import "./Homepage.css";
 
-export default function Navbar({query,setQuery,data}) {
+export default function Navbar({setQuery,data}) {
   return (
     <div className="navbar">
       <div className="logo-section">
@@ -14,7 +14,6 @@ export default function Navbar({query,setQuery,data}) {
           <input
             type="text"
             name="search"
-            value={query}
             placeholder="Search movies..."
             onChange={(e) => {
               setQuery(e.target.value);

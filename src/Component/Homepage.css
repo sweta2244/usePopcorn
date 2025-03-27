@@ -73,11 +73,6 @@ body {
   position:absolute;
 }
 
-.detail {
-  width: 350px;
-  background-color: #343a40;
-  padding: 20px;
-}
 .individual-film {
   display: flex;
   gap: 20px;
@@ -98,6 +93,8 @@ body {
   width: 400px;
   background-color: #343a40;
   border-top-left-radius: 10px;
+  height:560px;
+  overflow-y: scroll;
 }
 
 .detail-box img {

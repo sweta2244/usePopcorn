@@ -1,12 +1,23 @@
+import { useEffect, useState } from "react";
 import "./Homepage.css";
 
 export default function Navbar({setQuery,data}) {
+  const [term,setTerm]=useState("");
+  useEffect(()=>{
+    if (term.length>=3){
+      setQuery(term);
+    }
+    else{
+        setQuery("");
+    }
+  },[term,setQuery])
   return (
     <div className="navbar">
       <div className="logo-section">
         <div className="logo-flex">
+          <p className="arrow">⟵</p>
           <p className="logo-popcorn">🍿</p>
-          <h2> usePopcorn </h2>
+          <h2 className="text-logo"> usePopcorn </h2>
         </div>
       </div>
       <div className="search-bar">
@@ -16,7 +27,7 @@ export default function Navbar({setQuery,data}) {
             name="search"
             placeholder="Search movies..."
             onChange={(e) => {
-              setQuery(e.target.value);
+              setTerm(e.target.value);
             }}
           />
         </form>

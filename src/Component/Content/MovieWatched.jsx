@@ -1,7 +1,8 @@
 
-export default function MovieWatched({ movieWatched,handleRemoval,detailDisable,handleDetailDisable }) {
+export default function MovieWatched({movieWatched,handleRemoval,detailDisable,handleDetailDisable }) {
   let total = 0;
   movieWatched.map((movie) => (total = total + movie.Rate));
+  
   return (
     <div className="detail-box">
       <button  className="detail-hide" onClick={()=>handleDetailDisable()}>{detailDisable?<p>-</p>:<p>+</p>}</button>
@@ -19,13 +20,17 @@ export default function MovieWatched({ movieWatched,handleRemoval,detailDisable,
             <div>
               <img src={movieWatched1.Poster} alt="image" />
             </div>
-            <div>
-              <p>{movieWatched1.Title}</p>
-              <p>🗓 {movieWatched1.Year}</p>
-              <p>🌟 {movieWatched1.Rate}</p>
+            <div className="watched-flex-half">
+              <p style={{fontSize:"20px"}}>{movieWatched1.Title}</p>
+              <div className="watched-description">
+                <div style={{display:"flex",justifyContent:"space-between",gap:"20px"}}>
+                  <p>🗓 {movieWatched1.Year}</p>
+                  <p>🌟 {movieWatched1.Rate}</p>
+                </div>
+                <button onClick={()=>handleRemoval(movieWatched1.Title)}>x</button>
+              </div>
             </div>
             <div>
-              <button onClick={()=>handleRemoval(movieWatched1.Title)}>x</button>
             </div>
           </div>
         ))}

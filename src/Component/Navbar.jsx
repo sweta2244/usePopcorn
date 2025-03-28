@@ -25,6 +25,7 @@ export default function Navbar({setQuery,data}) {
           <input
             type="text"
             name="search"
+            defaultValue=""
             placeholder="Search movies..."
             onChange={(e) => {
               setTerm(e.target.value);

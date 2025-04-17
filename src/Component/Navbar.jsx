@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Homepage.css";
 
 export default function Navbar({setQuery,data}) {
   const [term,setTerm]=useState("");
+  const searchFocus=useRef();
   useEffect(()=>{
     if (term.length>=3){
       setQuery(term);
@@ -10,7 +11,10 @@ export default function Navbar({setQuery,data}) {
     else{
         setQuery("");
     }
-  },[term,setQuery])
+  },[term,setQuery]);
+  useEffect(()=>{
+    searchFocus.current.focus();
+  },[]);
   return (
     <div className="navbar">
       <div className="logo-section">
@@ -30,6 +34,7 @@ export default function Navbar({setQuery,data}) {
             onChange={(e) => {
               setTerm(e.target.value);
             }}
+            ref={searchFocus}
           />
         </form>
       </div>

@@ -40,7 +40,7 @@ export default function Navbar({setQuery,data}) {
       </div>
       <div className="result">
         <p>
-          Found <b>{data ? data.length : 0}</b> results
+          Found <b>{data ? data?.length : 0}</b> results
         </p>
       </div>
     </div>

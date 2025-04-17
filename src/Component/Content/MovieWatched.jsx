@@ -10,8 +10,8 @@ export default function MovieWatched({movieWatched,handleRemoval,detailDisable,h
         <div className="detail-box-null">
           <p>MOVIES YOU WATCHED</p>
           <div className="description-flex">
-            <p>#️⃣ {movieWatched.length} movies</p>
-            <p>🌟 {total===0?0:total / movieWatched.length}</p>
+            <p>#️⃣ {movieWatched?.length} movies</p>
+            <p>🌟 {total===0?0:total / movieWatched?.length}</p>
             <p>⏳ 0 min</p>
           </div>
         </div>

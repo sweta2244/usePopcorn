@@ -1,7 +1,7 @@
 
 export default function MovieWatched({movieWatched,handleRemoval,detailDisable,handleDetailDisable }) {
   let total = 0;
-  movieWatched.map((movie) => (total = total + movie.Rate));
+  movieWatched?.map((movie) => (total = total + movie.Rate));
   
   return (
     <div className="detail-box">
@@ -15,7 +15,7 @@ export default function MovieWatched({movieWatched,handleRemoval,detailDisable,h
             <p>⏳ 0 min</p>
           </div>
         </div>
-        {movieWatched.map((movieWatched1, i) => (
+        {movieWatched?.map((movieWatched1, i) => (
           <div className="individual-film" key={i}>
             <div>
               <img src={movieWatched1.Poster} alt="image" />

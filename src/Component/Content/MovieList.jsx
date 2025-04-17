@@ -4,7 +4,7 @@ export default function MovieList({ data,handleDescription,handleDisable,listDis
     <div className="list-of-movies">
     <button className="detail-hide" onClick={()=>handleListDisable()}>{listDisable?<p>-</p>:<p>+</p>}</button>
       {listDisable?(data ? (
-        data.map((item, i) => (
+        data?.map((item, i) => (
           <div className="individual-film" key={i} onClick={()=>{handleDescription(item.imdbID);handleDisable()}}>
             <div>
               <img src={item.Poster} alt="image" />

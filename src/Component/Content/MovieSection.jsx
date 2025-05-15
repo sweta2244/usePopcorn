@@ -5,12 +5,11 @@ import MovieWatched from "./MovieWatched";
 
 export default function MovieSection({ data }) {
   const [selectedMovie, setSelectedMovie] = useState({});
-  const [movieWatched, setWatchedMovie] = useState(JSON.parse(localStorage.getItem("watched")));
+  const [movieWatched, setWatchedMovie] = useState(JSON.parse(localStorage.getItem("watched"))||[]);
   const [disable, setDisable] = useState(true);
   const [listDisable, setListDisable] = useState(true);
   const [detailDisable, setDetailDisable] = useState(true);
 
-  console.log("ssssssss",movieWatched);
 
   function handleDetailDisable() {
     setDetailDisable(!detailDisable);

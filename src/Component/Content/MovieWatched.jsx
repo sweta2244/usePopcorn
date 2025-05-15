@@ -18,16 +18,16 @@ export default function MovieWatched({movieWatched,handleRemoval,detailDisable,h
         {movieWatched?.map((movieWatched1, i) => (
           <div className="individual-film" key={i}>
             <div>
-              <img src={movieWatched1.Poster} alt="image" />
+              <img src={movieWatched1?.Poster} alt="image" />
             </div>
             <div className="watched-flex-half">
-              <p style={{fontSize:"20px"}}>{movieWatched1.Title}</p>
+              <p style={{fontSize:"20px"}}>{movieWatched1?.Title}</p>
               <div className="watched-description">
                 <div style={{display:"flex",justifyContent:"space-between",gap:"20px"}}>
-                  <p>🗓 {movieWatched1.Year}</p>
-                  <p>🌟 {movieWatched1.Rate}</p>
+                  <p>🗓 {movieWatched1?.Year}</p>
+                  <p>🌟 {movieWatched1?.Rate}</p>
                 </div>
-                <button onClick={()=>handleRemoval(movieWatched1.Title)}>x</button>
+                <button onClick={()=>handleRemoval(movieWatched1?.Title)}>x</button>
               </div>
             </div>
             <div>

@@ -1,12 +1,37 @@
-# React + Vite
+# 🎬 usePopcorn
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**usePopcorn** is a movie search web application built with **ReactJS**. It allows users to search for movies and view details fetched from a public API. The app uses `useEffect` for data fetching and `useState` for managing state.
 
-Currently, two official plugins are available:
+🚀 **Live Demo**: [nepplix.netlify.app](https://nepplix.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔍 Real-time movie search
+- 📡 Fetches data from an external movie API
+- ⚛️ Built with modern React (Hooks: `useState`, `useEffect`)
+- 💻 Responsive and user-friendly UI
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend**: ReactJS
+- **Hooks**: `useState`, `useEffect`
+- **API**: OMDb API
+- **Deployment**: Netlify
+
+---
+
+## 🚧 How It Works
+
+1. User enters a movie name in the search input.
+2. `useEffect` triggers an API call on input change.
+3. `useState` stores the results and displays them dynamically.
+4. Movies are listed with titles, posters, and other metadata.
+5. User reviews the movie.
+6. User performs CRUD operation.
+
+
+
